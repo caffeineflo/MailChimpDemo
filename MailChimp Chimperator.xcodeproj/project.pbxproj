@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		228DF17C1E79DB9A005EFD68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF17B1E79DB9A005EFD68 /* main.m */; };
 		228DF17F1E79DB9A005EFD68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF17E1E79DB9A005EFD68 /* AppDelegate.m */; };
-		228DF1821E79DB9A005EFD68 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1811E79DB9A005EFD68 /* ViewController.m */; };
-		228DF1851E79DB9A005EFD68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228DF1831E79DB9A005EFD68 /* Main.storyboard */; };
 		228DF1871E79DB9A005EFD68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228DF1861E79DB9A005EFD68 /* Assets.xcassets */; };
 		228DF18A1E79DB9A005EFD68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228DF1881E79DB9A005EFD68 /* LaunchScreen.storyboard */; };
 		228DF1951E79DB9A005EFD68 /* MailChimp_ChimperatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1941E79DB9A005EFD68 /* MailChimp_ChimperatorTests.m */; };
 		228DF1A01E79DB9A005EFD68 /* MailChimp_ChimperatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF19F1E79DB9A005EFD68 /* MailChimp_ChimperatorUITests.m */; };
+		228DF1AF1E79E3F7005EFD68 /* MCListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1AE1E79E3F7005EFD68 /* MCListTableViewController.m */; };
+		228DF1B31E79E41D005EFD68 /* MCSubscriberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */; };
+		228DF1B41E79E41D005EFD68 /* MCSubscriberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */; };
+		228DF1B71E79E445005EFD68 /* MCStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1B61E79E445005EFD68 /* MCStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +41,6 @@
 		228DF17B1E79DB9A005EFD68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		228DF17D1E79DB9A005EFD68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		228DF17E1E79DB9A005EFD68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		228DF1801E79DB9A005EFD68 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		228DF1811E79DB9A005EFD68 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		228DF1841E79DB9A005EFD68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		228DF1861E79DB9A005EFD68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		228DF1891E79DB9A005EFD68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		228DF18B1E79DB9A005EFD68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +50,13 @@
 		228DF19B1E79DB9A005EFD68 /* MailChimp ChimperatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MailChimp ChimperatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		228DF19F1E79DB9A005EFD68 /* MailChimp_ChimperatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MailChimp_ChimperatorUITests.m; sourceTree = "<group>"; };
 		228DF1A11E79DB9A005EFD68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		228DF1AD1E79E3F7005EFD68 /* MCListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCListTableViewController.h; sourceTree = "<group>"; };
+		228DF1AE1E79E3F7005EFD68 /* MCListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCListTableViewController.m; sourceTree = "<group>"; };
+		228DF1B01E79E41D005EFD68 /* MCSubscriberDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCSubscriberDetailViewController.h; sourceTree = "<group>"; };
+		228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCSubscriberDetailViewController.m; sourceTree = "<group>"; };
+		228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSubscriberDetailViewController.xib; sourceTree = "<group>"; };
+		228DF1B51E79E445005EFD68 /* MCStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCStore.h; sourceTree = "<group>"; };
+		228DF1B61E79E445005EFD68 /* MCStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +109,13 @@
 			children = (
 				228DF17D1E79DB9A005EFD68 /* AppDelegate.h */,
 				228DF17E1E79DB9A005EFD68 /* AppDelegate.m */,
-				228DF1801E79DB9A005EFD68 /* ViewController.h */,
-				228DF1811E79DB9A005EFD68 /* ViewController.m */,
-				228DF1831E79DB9A005EFD68 /* Main.storyboard */,
+				228DF1AD1E79E3F7005EFD68 /* MCListTableViewController.h */,
+				228DF1AE1E79E3F7005EFD68 /* MCListTableViewController.m */,
+				228DF1B01E79E41D005EFD68 /* MCSubscriberDetailViewController.h */,
+				228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */,
+				228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */,
+				228DF1B51E79E445005EFD68 /* MCStore.h */,
+				228DF1B61E79E445005EFD68 /* MCStore.m */,
 				228DF1861E79DB9A005EFD68 /* Assets.xcassets */,
 				228DF1881E79DB9A005EFD68 /* LaunchScreen.storyboard */,
 				228DF18B1E79DB9A005EFD68 /* Info.plist */,
@@ -249,9 +259,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				228DF1B41E79E41D005EFD68 /* MCSubscriberDetailViewController.xib in Resources */,
 				228DF18A1E79DB9A005EFD68 /* LaunchScreen.storyboard in Resources */,
 				228DF1871E79DB9A005EFD68 /* Assets.xcassets in Resources */,
-				228DF1851E79DB9A005EFD68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				228DF1821E79DB9A005EFD68 /* ViewController.m in Sources */,
 				228DF17F1E79DB9A005EFD68 /* AppDelegate.m in Sources */,
+				228DF1AF1E79E3F7005EFD68 /* MCListTableViewController.m in Sources */,
 				228DF17C1E79DB9A005EFD68 /* main.m in Sources */,
+				228DF1B31E79E41D005EFD68 /* MCSubscriberDetailViewController.m in Sources */,
+				228DF1B71E79E445005EFD68 /* MCStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,14 +326,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		228DF1831E79DB9A005EFD68 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				228DF1841E79DB9A005EFD68 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		228DF1881E79DB9A005EFD68 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

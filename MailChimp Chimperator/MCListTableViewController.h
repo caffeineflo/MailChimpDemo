@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MCListTableViewController.h
 //  MailChimp Chimperator
 //
 //  Created by Florian Harr on 3/15/17.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MCListTableViewController : UITableViewController
 
 @end
-
