@@ -17,6 +17,8 @@
 		228DF1B31E79E41D005EFD68 /* MCSubscriberDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */; };
 		228DF1B41E79E41D005EFD68 /* MCSubscriberDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */; };
 		228DF1B71E79E445005EFD68 /* MCStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 228DF1B61E79E445005EFD68 /* MCStore.m */; };
+		22C476CF1E7F713400187331 /* MCList.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C476CE1E7F713400187331 /* MCList.m */; };
+		22C476D21E7F714100187331 /* MCMember.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C476D11E7F714100187331 /* MCMember.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCSubscriberDetailViewController.xib; sourceTree = "<group>"; };
 		228DF1B51E79E445005EFD68 /* MCStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCStore.h; sourceTree = "<group>"; };
 		228DF1B61E79E445005EFD68 /* MCStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCStore.m; sourceTree = "<group>"; };
+		22C476CD1E7F713400187331 /* MCList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCList.h; sourceTree = "<group>"; };
+		22C476CE1E7F713400187331 /* MCList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCList.m; sourceTree = "<group>"; };
+		22C476D01E7F714100187331 /* MCMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCMember.h; sourceTree = "<group>"; };
+		22C476D11E7F714100187331 /* MCMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCMember.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,13 +115,9 @@
 			children = (
 				228DF17D1E79DB9A005EFD68 /* AppDelegate.h */,
 				228DF17E1E79DB9A005EFD68 /* AppDelegate.m */,
-				228DF1AD1E79E3F7005EFD68 /* MCListTableViewController.h */,
-				228DF1AE1E79E3F7005EFD68 /* MCListTableViewController.m */,
-				228DF1B01E79E41D005EFD68 /* MCSubscriberDetailViewController.h */,
-				228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */,
-				228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */,
-				228DF1B51E79E445005EFD68 /* MCStore.h */,
-				228DF1B61E79E445005EFD68 /* MCStore.m */,
+				22C476CC1E7F70F600187331 /* Model */,
+				22C476CB1E7F70D300187331 /* ViewController */,
+				22C476CA1E7F70CA00187331 /* Store */,
 				228DF1861E79DB9A005EFD68 /* Assets.xcassets */,
 				228DF1881E79DB9A005EFD68 /* LaunchScreen.storyboard */,
 				228DF18B1E79DB9A005EFD68 /* Info.plist */,
@@ -148,6 +150,38 @@
 				228DF1A11E79DB9A005EFD68 /* Info.plist */,
 			);
 			path = "MailChimp ChimperatorUITests";
+			sourceTree = "<group>";
+		};
+		22C476CA1E7F70CA00187331 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				228DF1B51E79E445005EFD68 /* MCStore.h */,
+				228DF1B61E79E445005EFD68 /* MCStore.m */,
+			);
+			name = Store;
+			sourceTree = "<group>";
+		};
+		22C476CB1E7F70D300187331 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				228DF1AD1E79E3F7005EFD68 /* MCListTableViewController.h */,
+				228DF1AE1E79E3F7005EFD68 /* MCListTableViewController.m */,
+				228DF1B01E79E41D005EFD68 /* MCSubscriberDetailViewController.h */,
+				228DF1B11E79E41D005EFD68 /* MCSubscriberDetailViewController.m */,
+				228DF1B21E79E41D005EFD68 /* MCSubscriberDetailViewController.xib */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		22C476CC1E7F70F600187331 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				22C476CD1E7F713400187331 /* MCList.h */,
+				22C476CE1E7F713400187331 /* MCList.m */,
+				22C476D01E7F714100187331 /* MCMember.h */,
+				22C476D11E7F714100187331 /* MCMember.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +323,8 @@
 				228DF17F1E79DB9A005EFD68 /* AppDelegate.m in Sources */,
 				228DF1AF1E79E3F7005EFD68 /* MCListTableViewController.m in Sources */,
 				228DF17C1E79DB9A005EFD68 /* main.m in Sources */,
+				22C476CF1E7F713400187331 /* MCList.m in Sources */,
+				22C476D21E7F714100187331 /* MCMember.m in Sources */,
 				228DF1B31E79E41D005EFD68 /* MCSubscriberDetailViewController.m in Sources */,
 				228DF1B71E79E445005EFD68 /* MCStore.m in Sources */,
 			);
@@ -520,6 +556,7 @@
 				228DF1A61E79DB9A005EFD68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		228DF1A71E79DB9A005EFD68 /* Build configuration list for PBXNativeTarget "MailChimp ChimperatorTests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +565,7 @@
 				228DF1A91E79DB9A005EFD68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		228DF1AA1E79DB9A005EFD68 /* Build configuration list for PBXNativeTarget "MailChimp ChimperatorUITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +574,7 @@
 				228DF1AC1E79DB9A005EFD68 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

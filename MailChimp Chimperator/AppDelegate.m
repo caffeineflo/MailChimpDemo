@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MCListTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +19,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    MCListTableViewController *tableViewVC = [[MCListTableViewController alloc] init];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tableViewVC];
+    
+    self.window.rootViewController = navController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
