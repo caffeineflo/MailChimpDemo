@@ -18,6 +18,8 @@
 
 @end
 
+
+// Usually I'd rather choose Storyboards over single VCs with NIBs. Due to the size of the project, I decided for one NIB and everything else programmatically.
 @implementation MCSubscriberDetailViewController
 
 - (instancetype)initWithMember:(MCMember *)member

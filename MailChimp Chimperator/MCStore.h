@@ -11,6 +11,6 @@
 
 @interface MCStore : NSObject
 
-- (void)fetchListsAndMembersWithCompletion:(void (^)(NSArray<MCList *> *, NSError *))completion;
+- (void)fetchListsIncludingMembersWithCompletion:(void (^)(NSArray<MCList *> *, NSError *))completion;
 
 @end

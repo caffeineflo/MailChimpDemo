@@ -35,12 +35,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
-    
-    [self.store fetchListsAndMembersWithCompletion:^(NSArray<MCList *> *lists, NSError *error){
+    [self refreshData];
+}
+
+- (void)refreshData
+{
+    // Ideally for slow network connections or when fetching more data I would show a loading screen or a Alert saying still fetching.
+    [self.store fetchListsIncludingMembersWithCompletion:^(NSArray<MCList *> *lists, NSError *error){
         if (error) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Couldn't fetch MailChimp Lists and Members"
+                                                                                     message:[NSString stringWithFormat:@"An error occurred fetching the data requested. The error we're getting is:%@", error.localizedDescription]
+                                                                              preferredStyle:UIAlertControllerStyleAlert];
             
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Try Again" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                [self refreshData];
+            }]];
+            [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDestructive handler:nil]];
+            
+            [self presentViewController:alertController animated:YES completion:nil];
         } else {
             self.lists = lists;
             [self.tableView reloadData];
@@ -68,8 +80,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"UITableViewCell"];
+    }
     
-    cell.textLabel.text = self.lists[indexPath.section].members[indexPath.row].email_address;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.lists[indexPath.section].members[indexPath.row].FNAME, self.lists[indexPath.section].members[indexPath.row].LNAME];
+    cell.detailTextLabel.text = self.lists[indexPath.section].members[indexPath.row].email_address;
     
     return cell;
 }
