@@ -18,7 +18,6 @@ NSString * const MCAPIKey = @"8ac1de26a49c4cca30ca8c0b62b8e68c-us14";
 @property (nonatomic) NSURLSession *session;
 
 @property (nonatomic, strong) NSDictionary *rootSubresources;
-@property (nonatomic, strong) NSArray<MCList *> *lists;
 
 @end
 
@@ -33,8 +32,6 @@ NSString * const MCAPIKey = @"8ac1de26a49c4cca30ca8c0b62b8e68c-us14";
         _session = [NSURLSession sessionWithConfiguration:config
                                                  delegate:self
                                             delegateQueue:nil];
-        
-        [self fetchUserInfoWithCompletion:^(NSData *data, NSError *error){}];
     }
     return self;
 }
@@ -45,24 +42,28 @@ NSString * const MCAPIKey = @"8ac1de26a49c4cca30ca8c0b62b8e68c-us14";
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req addValue:[NSString stringWithFormat:@"apikey %@", MCAPIKey] forHTTPHeaderField:@"Authorization"];
     
-    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:completion];
+    NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error){
+        if (error) {
+            NSLog(@"ERROR: GET for %@ gave error %@", url.absoluteString, error.localizedDescription);
+        } else {
+            completion(data, response, error);
+        }
+    }];
     [dataTask resume];
 }
 
-- (void)fetchUserInfoWithCompletion:(void (^)(NSData *, NSError *))completion
+- (void)fetchRootSubresourcesWithCompletion:(void (^)(NSDictionary *, NSError *))completion
 {
     [self fetchEndpoint:MCAPIBaseURLString completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         
         // Usually the User would get it's own model to save these subresouces under, but since we don't need any other info from this endpoint than the
         // hateoas subresouces we store it here.
-        self.rootSubresources = [self parseSubresourcesFromArray:jsonObject[@"_links"]];
+        NSDictionary *rootSubresources = [self parseSubresourcesFromArray:jsonObject[@"_links"]];
+        self.rootSubresources = rootSubresources;
         NSLog(@"%@", self.rootSubresources);
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(data, error);
-            [self fetchListsWithCompletion:^(NSArray<MCList *> *lists, NSError *error){}];
-        });
+        completion(rootSubresources, error);
     }];
 }
 
@@ -77,13 +78,7 @@ NSString * const MCAPIKey = @"8ac1de26a49c4cca30ca8c0b62b8e68c-us14";
             list.subresources = [self parseSubresourcesFromArray:dict[@"_links"]];
             [tempLists addObject:list];
         }
-        
-        self.lists = tempLists;
-        NSLog(@"%@", self.lists);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(self.lists, error);
-        });
+        completion(tempLists, error);
     }];
 }
 
@@ -95,17 +90,36 @@ NSString * const MCAPIKey = @"8ac1de26a49c4cca30ca8c0b62b8e68c-us14";
         NSMutableArray *tempMembers = [[NSMutableArray alloc] init];
         for (NSDictionary *dict in jsonObject[@"members"]) {
             MCMember *member = [[MCMember alloc] initWithJSONDictionary:dict];
-            list.subresources = [self parseSubresourcesFromArray:dict[@"_links"]];
+            member.subresources = [self parseSubresourcesFromArray:dict[@"_links"]];
             [tempMembers addObject:member];
         }
         
-        list.members = tempMembers;
-        NSLog(@"%@", list.members);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completion(list.members, error);
-        });
+        completion(tempMembers, error);
     }];
+}
+
+- (void)fetchListsAndMembersWithCompletion:(void (^)(NSArray<MCList *> *, NSError *))completion
+{
+    if (!self.rootSubresources) {
+        
+        [self fetchRootSubresourcesWithCompletion:^(NSDictionary *rootSubresouces, NSError *error){
+            
+            [self fetchListsWithCompletion:^(NSArray<MCList *> *lists, NSError *err){
+                
+                for (MCList *list in lists) {
+                    [self fetchMembersForList:list completion:^(NSArray<MCMember *> *members, NSError *error){
+                        list.members = members;
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completion(lists, err);
+                        });
+                    }];
+                }
+                
+            }];
+        }];
+        
+    }
 }
 
 

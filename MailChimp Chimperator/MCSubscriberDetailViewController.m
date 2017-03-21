@@ -7,31 +7,33 @@
 //
 
 #import "MCSubscriberDetailViewController.h"
+#import "MCMember.h"
 
 @interface MCSubscriberDetailViewController ()
+
+@property(nonatomic, strong) MCMember *member;
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @end
 
 @implementation MCSubscriberDetailViewController
 
+- (instancetype)initWithMember:(MCMember *)member
+{
+    self = [super init];
+    if (self) {
+        _member = member;
+        self.navigationItem.title = member.email_address;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", self.member.FNAME, self.member.LNAME];
+    self.emailLabel.text = self.member.email_address;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

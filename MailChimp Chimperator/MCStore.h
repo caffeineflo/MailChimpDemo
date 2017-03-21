@@ -6,8 +6,11 @@
 //  Copyright © 2017 Florian Harr. All rights reserved.
 //
 
+@class MCMember, MCList;
 #import <Foundation/Foundation.h>
 
 @interface MCStore : NSObject
+
+- (void)fetchListsAndMembersWithCompletion:(void (^)(NSArray<MCList *> *, NSError *))completion;
 
 @end

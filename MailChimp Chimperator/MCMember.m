@@ -14,7 +14,9 @@
 {
     self = [super init];
     if (self) {
-        
+        _FNAME = [jsonDictionary[@"merge_fields"] valueForKey:@"FNAME"];
+        _LNAME = [jsonDictionary[@"merge_fields"] valueForKey:@"LNAME"];
+        _email_address = jsonDictionary[@"email_address"];
     }
     return self;
 }
